@@ -26,10 +26,7 @@ First, we will see if the social structure of movies are correlated with their r
 
 <div class=text-justify>
 
-To make this work, we have a Database of 808 movies. For each movie, we have a ‘.gexf’ file which is the graph file, and it’s rating on IMDb. To visualise and analyse the social structure of a movie, we can use Gephi. We can have here an individual analysis of each movie. For instance, you can see here the social structure graph of the movie Gladiator.
-</div>
-
-![Graph of Gladiator](gladiator.png 'Gladiator')
+To make this work, we have a Database of 808 movies. For each movie, we have a ‘.gexf’ file which is the graph file, and it’s rating on IMDb. To visualise and analyse the social structure of a movie, we can use Gephi. We can have here an individual analysis of each movie.
 
 <div class=text-justify>
 
@@ -173,49 +170,14 @@ Now, let's see what are the results of this work
 
 ## Application of these methods to look at the correlation between social structure an rating of a movie
 
-We can calculate the correlation coefficient I presented you just before:
-
-
-```python
-list_of_metrics = [('nodes', nodes), ('edges', edges), ('average degree', avg_degrees), ('diameter', diameters), ('density', densities), ('modularity', modularities), ('triadic closure', triadics), ('max PageRank', max_pagerank)]
-
-from numpy.random import rand
-from numpy.random import seed
-from scipy.stats import spearmanr
-
-results = {}
-
-for t in list_of_metrics:
-    coef, p = spearmanr(ratings, t[1])
-    results[t[0]] = coef
-
-results_pd = pd.DataFrame(results, index=[0])
-results_pd.head()
-```
-
-![Correlations](correlations.png)
-
-<div class=text-justify>
+We can calculate the correlation coefficient I presented you just before (see the notebook).
 
 We see that there seems to be no correlation between the metrics we chose and the ratings of movies. Indeed, no correlation coefficient is above 0.1. The most correlated seems to be the density and the modularity.
 
-Let's plot the metrics in function of the ratings to see if we can see some trends.  
-*(I'm sorry for the size, you can zoom in to see better)*
+I decided to divide the movies in 10 classes depending on their ratings. The classes are the folowwing: $[0-1[,  [1-2[,  ... ,  [9-10]$. For instance, if a movie has a rating of 7.3, it will be in the class $[7-8[$.  
+Then for each class, I calculated the average of the metric considered for the movies in this class. (see the notebook)
 </div>
 
-![Metrics = f(rating)](graph1.png)
-
-<div class=text-justify>
-
-It's difficult to see if there are patterns with this representation.  
-
-So, I decided to divide the movies in 10 classes depending on their ratings. The classes are the folowwing: $[0-1[,  [1-2[,  ... ,  [9-10]$. For instance, f a movie has a rating of 7.3, it will be in the class $[7-8[$.  
-Then for each class, I calculated the average of the metric considered for the movies in this class.
-
-Here are the results: *(I'm sorry for the size, you can zoom in to see better)*
-</div>
-
-![Metrics = f(rating)](graph2.png)
 
 <div class=text-justify>
 
