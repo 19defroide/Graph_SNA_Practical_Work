@@ -191,7 +191,7 @@ So, we can see that, in general, people prefers movies with a lot of characters 
 We saw that we can detect some correlations between the social structure of a movie and its rating. But these metrics won't be enough to predict the rating of a movie from its social structure. We could try to predict this with a method I present you next. 
 </div>
 
-\pagebreak
+
 
 # Can we predict the rating of the movie with automated learning?
 
@@ -296,7 +296,7 @@ print("SVM Accuracy:", metrics.accuracy_score(y_test, y_pred))
 The output here is `Accuracy: 0.5298013245033113`.  
 So, the SVM's accuracy is just above 50%. It is not very good.
 
-\pagebreak
+
 
 # Discussion
 
@@ -315,7 +315,7 @@ Maybe with a bigger dataset, I could have tried to build a Neural Network to pre
 </div>
 
  
-\pagebreak
+
 
 # Conclusion
 
