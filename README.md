@@ -16,8 +16,6 @@ The goal of this work will be to figure out if there is a correlation between th
 Then, we will try to see if we can predict the rating of a movie based on its social structure.
 </div>
 
-\pagebreak
-
 # Is the social structure of the movie correlated with the rating
 
 First, we will see if the social structure of movies are correlated with their ratings.
